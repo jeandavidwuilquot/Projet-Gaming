@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LinkTo from './components/link'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Accueil from './components/recherche'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router className="App-header">
+        <div>
+          <LinkTo to="/Accueil"/>
+          <LinkTo exact={true} to="/"/>
+          <Route exact path="/" component={Home} />
+          <Route path="/Accueil" component={Accueil} />
+        </div>
+      </Router>
     </div>
   );
+}
+function Home() {
+  return (
+    <div>
+      <h1>azodnaod</h1>
+    </div>
+  )
 }
 
 export default App;
